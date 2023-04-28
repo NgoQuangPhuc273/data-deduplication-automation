@@ -1,11 +1,11 @@
 import csv
 import re
 import logging
+import dedupe as deduplication
 import optparse
-
-import dedupe
+import pandas
+import sklearn.tests
 from unidecode import unidecode
-import deduplication
 
 def preProcess(column):
     """
@@ -43,15 +43,14 @@ if __name__ == '__main__':
     I.Setting up files
     """
 
-    input = 'csv_example/id_whitehouse_final.csv'
-    output = 'csv_example/whitehouse_csv_example_output.csv'
-    settings = 'csv_example/csv_example_learned_settings'
-    training = 'csv_example/csv_example_training.json'
+    input = 'id_whitehouse_final.csv'
+    output = 'whitehouse_csv_example_output.csv'
+    settings = 'settings'
+    training = 'training.json'
 
     print('Importing Data')
 
     data_d = readData(input)
-    deduplication = deduplication()
         
     fields = [
         {'field': 'NAMELAST','type': 'String'},
@@ -60,11 +59,11 @@ if __name__ == '__main__':
     ]
 
     """
-    Create a new deduper object and pass our data model to it.
+    Create a new model object and pass our data model to it.
     """
-    deduper = dedupe.Dedupe(fields)
+    model = deduplication.Dedupe(fields)
 
-    deduper.prepare_training(data_d)
+    model.prepare_training(data_d)
 
     """
     II.Active Learning
@@ -80,15 +79,15 @@ if __name__ == '__main__':
 
     print('Active Labeling')
 
-    dedupe.console_label(deduper)
+    deduplication.console_label(model)
 
-    deduper.train()
+    model.train()
 
     with open(training, 'w') as tf:
-        deduper.write_training(tf)
+        model.write_training(tf)
 
     with open(settings, 'wb') as sf:
-        deduper.write_settings(sf)
+        model.write_settings(sf)
 
     """
     Clustering
@@ -97,7 +96,7 @@ if __name__ == '__main__':
     """
 
     print('Start Clustering')
-    clustered_dupes = deduper.partition(data_d, 0.5)
+    clustered_dupes = model.partition(data_d, 0.5)
 
     print('Total number of duplicate sets:', len(clustered_dupes))
 

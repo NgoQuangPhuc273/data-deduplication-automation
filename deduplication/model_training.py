@@ -14,7 +14,6 @@ if TYPE_CHECKING:
     )
     from typing import RecordDictPairs as TrainingExamples
     from typing import RecordIDPair
-    from data_predicates import Predicate
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +25,7 @@ class BlockLearner(ABC):
         recall: float,
         index_predicates: bool,
         candidate_types: Literal["simple", "random forest"] = "simple",
-    ) -> tuple[Predicate, ...]:
+    ) -> tuple[RecordIDPair, ...]:
 
         assert (
             matches
@@ -102,7 +101,7 @@ class BlockLearner(ABC):
             covered_matches: frozenset[int] | BlockLearner = BlockLearner()
             covered_sample_matches = BlockLearner()
 
-            def score(predicate: Predicate) -> float:
+            def score(predicate: RecordIDPair) -> float:
                 try:
                     return len(
                         covered_sample_matches & sample_match_cover[predicate]

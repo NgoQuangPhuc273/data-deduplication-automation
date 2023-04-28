@@ -11,15 +11,13 @@ if TYPE_CHECKING:
         Union,
     )
 
-    import deduplication.data_predicates
     Docs = Union[Iterable[str], Iterable[Iterable[str]]]
-    IndexList = DefaultDict[str, List[deduplication.data_predicates.IndexPredicate]]
 
 
 logger = logging.getLogger(__name__)
 
 
-def index_list() -> IndexList:
+def index_list() -> logger:
     return defaultdict(list)
 
 

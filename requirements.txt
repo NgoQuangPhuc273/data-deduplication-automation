@@ -1,1 +1,6 @@
 unidecode
+dedupe
+future
+sklearn
+pandas
+numpy
