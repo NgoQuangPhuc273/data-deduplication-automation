@@ -38,28 +38,19 @@ in your terminal to install the required dependencies.
 
 Run `main.py` to start the program.
 
-
 A prompt will then appear in the terminal, asking you to compare two records.
 
 For example:
 
-Record 1: 
 
-NAMELAST: ammahtagoer, 
-
-NAMEFIRST: aku, 
-
-NAMEMID: None
-
-Record 2: 
-
-NAMELAST: amahtagoe, 
-
-NAMEFIRST: akul, 
-
-NAMEMID: m
+| Record | NAMELAST      | NAMEFIRST | NAMEMID |
+| ------ | -------------| ---------| ------- |
+| 1      | ammahtagoer  | aku      | None    |
+| 2      | amahtagoe    | akul     | m       |
 
 You will be asked to answer whether these two records refer to the same visitor, with the options of "y" for yes, "n" for no, "u" for unsure, or "f" for finished.
+
+For this example, it will be a "y".
 
 Repeat this process until you have answered at least 10 positive and 10 negative cases.
 
