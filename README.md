@@ -3,7 +3,7 @@
 Phuc Ngo
 
 # I. Introduction:
-In this project, we will apply machine learning techniques to the problem of data deduplication. Data deduplication is the process of identifying and removing duplicate records from a dataset, such as customer profiles, product listings, or medical records. Data deduplication is important for data quality, data integration, and data analysis.
+In this project, Iwill apply machine learning techniques to the problem of data deduplication. Data deduplication is the process of identifying and removing duplicate records from a dataset, such as customer profiles, product listings, or medical records. Data deduplication is important for data quality, data integration, and data analysis.
 
 However, data deduplication is challenging because real-world data is often noisy, incomplete, inconsistent, and heterogeneous. For example, two records that refer to the same entity may have different spellings, formats, abbreviations, or missing values. Therefore, simple string matching or rule-based methods are not sufficient to handle the complexity and diversity of data.
 
@@ -16,7 +16,7 @@ Machine learning can help to overcome these challenges by learning from examples
 
 The project focuses on deduplicating the names of visitors from the White House Visitor Records dataset, which contains approximately 100,000 records.
 
-However, for simplicity and speed, we will only use the first 2,700 records. The three variables used to identify a visitor are NAMELAST, NAMEFIRST, and NAMEMID.
+However, for simplicity and speed, I will only use the first 2,700 records. The three variables used to identify a visitor are NAMELAST, NAMEFIRST, and NAMEMID.
 
 The approach to achieve this goal includes: 
 - importing the dataset
@@ -64,7 +64,7 @@ For more information on the full dataset used in this example, please visit the 
 
 
 ### 1. Import and extracting data:
-We read the data from a CSV file through Pandas, the select and extract the desired columns/ metrics that need to be deduplicated.
+The program read the data from a CSV file through Pandas, the select and extract the desired columns/ metrics that need to be deduplicated.
 
 
 ### 2. Data pre-processing: 
@@ -73,7 +73,7 @@ The program starts by pre-processing the data to standardize and clean it. This 
 
 - Redundant information: The program first removes any irrelevant or redundant information from the data that is not useful for deduplication. This may include removing data that is missing or incomplete, as well as any columns that are not needed for the analysis.
 
-- Standardizing data formats: The program then standardizes the format of the data to a consistent structure. For example, if the data contains addresses, the program standardizes them to a common format (e.g., we write "123 Main St" instead of "123 Main Street").
+- Standardizing data formats: The program then standardizes the format of the data to a consistent structure. For example, if the data contains addresses, the program standardizes them to a common format (e.g., I write "123 Main St" instead of "123 Main Street").
 
 ### 3. Model training: 
 The program uses a supervised learning approach to train its model. The user provides a small sample of the data (typically 500 to 1000 records), which is labeled as either a match or a non-match. The model is trained to identify patterns in the labeled data and use these patterns to identify duplicates in the rest of the dataset.
