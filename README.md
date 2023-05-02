@@ -1,4 +1,4 @@
-# CSCI 374: Data Deduplication using Machine Learning
+# Data Deduplication using Machine Learning
 
 Phuc Ngo
 
